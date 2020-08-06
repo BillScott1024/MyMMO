@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public delegate void MyJumpDelegate();
+
 public class PlayerController : MonoBehaviour
 {
-    public delegate void MyJumpDelegate();
+
     public Rigidbody target;
     public float speed = 1.0f;
     public float walkSpeedDownscale = 2.0f;
@@ -155,6 +157,19 @@ public class PlayerController : MonoBehaviour
             target.drag = 0.0f;
             // If we're airborne, we should have no drag
         }
+    }
+
+
+    void OnDrawGizmos()
+    // Use gizmos to gain information about the state of your setup
+    {
+        if (!showGizmos || target == null)
+        {
+            return;
+        }
+        Gizmos.color = grounded ? Color.blue : Color.red;
+        Gizmos.DrawLine(target.transform.position + target.transform.up * -groundedCheckOffset,
+            target.transform.position + target.transform.up * -(groundedCheckOffset + groundedDistance));
     }
 
 }

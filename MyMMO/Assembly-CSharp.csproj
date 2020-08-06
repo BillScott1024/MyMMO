@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Scripts\PlayerAnimation.cs" />
     <Compile Include="Assets\_Scripts\PlayerController.cs" />
     <Compile Include="Assets\Demo\Assets\AnimationController.cs" />
     <Compile Include="Assets\Demo\Assets\CloseCameraFade.cs" />
